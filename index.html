@@ -1,13 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>COVID 19 CHARTS</title>
-</head>
-<body>  
-  <div id="chart"></div>
-  
-  <script src="index.js?country=Italy&element=#chart"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COVID 19 CHARTS</title>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      html {
+        line-height: 1.15;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+
+      body {
+        display: grid;
+        grid-template-columns: repeat(2, 400px);
+        grid-gap: 24px;
+
+        justify-content: center;
+
+        padding: 24px 24px 48px;
+        color: black;
+      }
+
+      @media (max-width: 900px) {
+        body {
+          grid-template-columns: 400px;
+        }
+      }
+
+      .full-width {
+        grid-column: 1 / -1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="full-width">COVID-19 Charts</h1>
+
+    <div id="initial"></div>
+    <div id="italy"></div>
+    <div id="france"></div>
+    <div id="germany"></div>
+
+    <p>
+      Data from
+      <a href="https://github.com/pomber/covid19" target="_blank"
+        >pomber/covid19</a
+      >.
+    </p>
+
+    <p>
+      Charts are builded by
+      <a href="https://www.tradingview.com/" target="_blank">tradingview</a>.
+    </p>
+
+    <p class="full-width">
+      You can add COVID chart to your site by adding script:
+    </p>
+
+    <code class="full-width">
+      <pre>
+&lt;div id='#italy'>&lt;/div>
+
+&lt;script src="https://unpkg.com/covid-charts/index.js?country=Italy&element=#italy">&lt;/script>
+      </pre>
+    </code>
+
+    <script src="https://unpkg.com/covid-charts/index.js?element=#initial"></script>
+    <script src="https://unpkg.com/covid-charts/index.js?country=Italy&element=#italy"></script>
+    <script src="https://unpkg.com/covid-charts/index.js?country=France&element=#france"></script>
+    <script src="https://unpkg.com/covid-charts/index.js?country=Germany&element=#germany"></script>
+  </body>
 </html>
