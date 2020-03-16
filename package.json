@@ -1,6 +1,6 @@
 {
   "name": "covid-charts",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "",
   "unpkg": "index.js",
   "main": "src/main.js",
