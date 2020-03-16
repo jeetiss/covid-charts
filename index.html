@@ -81,13 +81,21 @@
       <pre>
 &lt;div id='#italy'>&lt;/div>
 
-&lt;script src="https://unpkg.com/covid-charts/index.js?country=Italy&element=#italy">&lt;/script>
+&lt;script src="https://unpkg.com/covid-charts/index.js">&lt;/script>
+&lt;script>
+  createChart(document.querySelector("#italy"), { country: "Italy" });
+&lt;/script>
       </pre>
     </code>
 
-    <script src="https://unpkg.com/covid-charts/index.js?element=#initial"></script>
-    <script src="https://unpkg.com/covid-charts/index.js?country=Italy&element=#italy"></script>
-    <script src="https://unpkg.com/covid-charts/index.js?country=France&element=#france"></script>
-    <script src="https://unpkg.com/covid-charts/index.js?country=Germany&element=#germany"></script>
+    <script src="https://unpkg.com/covid-charts/index.js"></script>
+    <script>
+      const { createChart } = window;
+
+      createChart(document.querySelector("#initial"));
+      createChart(document.querySelector("#italy"), { country: "Italy" });
+      createChart(document.querySelector("#france"), { country: "France" });
+      createChart(document.querySelector("#germany"), { country: "Germany" });
+    </script>
   </body>
 </html>

@@ -4,11 +4,11 @@ import { terser } from 'rollup-plugin-terser'
 
 export default [
   {
-    input: 'src/umd.js',
+    input: 'src/main.js',
     output: {
       format: 'umd',
       file: 'index.js',
-      name: 'COVIDCharts',
+      name: 'createChart',
       sourcemap: false
     },
     plugins: [
