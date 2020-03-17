@@ -1,13 +1,14 @@
 {
   "name": "covid-charts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "unpkg": "index.js",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "files": [
     "index.js",
-    "src/main.js"
+    "cjs/index.js",
+    "esm/index.js"
   ],
   "scripts": {
     "build": "rollup -c",
