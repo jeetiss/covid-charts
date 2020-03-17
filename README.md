@@ -54,6 +54,7 @@ const chart = createChart(document.body, {
 # acknowledgements
 
 Thanks @pomber for the [data][data-link].
+
 Special thanks to [tradingview][tradingview] for [supa-dupa charts][tradingview-charts].
 
 [example]: https://ucarecdn.com/49c9de71-21de-45a3-97b8-9b48b5fb8fac/
