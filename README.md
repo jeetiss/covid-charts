@@ -51,5 +51,12 @@ const chart = createChart(document.body, {
  - countries: return a promise with available countries
  - changeCountry: change showed country to specified
 
+# Acknowledgements
+
+Thanks @pomber for making [data][data-link].
+Special thanks to [tradingview][tradingview] for [supa-dupa charts][tradingview-charts].
+
 [example]: https://ucarecdn.com/49c9de71-21de-45a3-97b8-9b48b5fb8fac/
 [data-link]: https://github.com/pomber/covid19
+[tradingview]: http://tradingview.com/
+[tradingview-charts]: https://github.com/tradingview/lightweight-charts
