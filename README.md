@@ -39,6 +39,13 @@ const chart = createChart(document.body, {
 
 ## api
 
+`createChart` params:
+ - dom element: in that place of DOM chart will be added
+ - options:
+   - width: width of chart (default: 400)
+   - height: height of chart (default: 300)
+   - country: data for this coutry will showed (default: 'China')
+
 `createChart` return object with next methods:
  - remove: desproy and remove chart from DOM
  - countries: return a promise with available countries
