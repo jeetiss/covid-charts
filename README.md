@@ -1,6 +1,6 @@
 # covid-charts
 
-Interactive chart with the number of Coronavirus confirmed cases, deaths, and recovered cases for you country. 
+Interactive charts with the number of Coronavirus confirmed cases, deaths, and recovered cases for your country. 
 
 ![example][example]
 
@@ -40,20 +40,20 @@ const chart = createChart(document.body, {
 ## api
 
 `createChart` params:
- - dom element: in that place of DOM chart will be added
+ - dom element: chart will be added to this place to DOM 
  - options:
-   - width: width of chart (default: 400)
-   - height: height of chart (default: 300)
-   - country: data for this coutry will showed (default: 'China')
+   - width (default: 400)
+   - height (default: 300)
+   - country (default: 'China')
 
 `createChart` return object with next methods:
- - remove: desproy and remove chart from DOM
+ - remove: destroy and remove chart from DOM
  - countries: return a promise with available countries
- - changeCountry: change showed country to specified
+ - changeCountry: change country to the specified
 
-# Acknowledgements
+# acknowledgements
 
-Thanks @pomber for making [data][data-link].
+Thanks @pomber for the [data][data-link].
 Special thanks to [tradingview][tradingview] for [supa-dupa charts][tradingview-charts].
 
 [example]: https://ucarecdn.com/49c9de71-21de-45a3-97b8-9b48b5fb8fac/
