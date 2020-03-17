@@ -1,9 +1,10 @@
 {
   "name": "covid-charts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "unpkg": "index.js",
-  "main": "src/main.js",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
   "files": [
     "index.js",
     "src/main.js"
