@@ -73,11 +73,6 @@
       </a>
     </h1>
 
-    <div id="initial"></div>
-    <div id="italy"></div>
-    <div id="france"></div>
-    <div id="germany"></div>
-
     <p>
       Data from
       <a href="https://github.com/pomber/covid19" target="_blank"
@@ -105,16 +100,6 @@
       </pre>
     </code>
 
-    <script src="https://unpkg.com/covid-charts/index.js"></script>
-    <script>
-      const { createChart } = window;
-
-      createChart(document.querySelector("#initial"));
-      createChart(document.querySelector("#italy"), { country: "Taiwan*" });
-      createChart(document.querySelector("#france"), { country: "France" });
-      createChart(document.querySelector("#germany"), {
-        country: "Korea, South"
-      });
-    </script>
+    <script src="./script.js"></script>
   </body>
 </html>

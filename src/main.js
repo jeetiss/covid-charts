@@ -36,6 +36,13 @@ const addStyles = () => {
     left: 2px;
     font-size: 12px;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .covid-19-legend div {
+    background-color: rgba(255, 255, 255, 0.7);
   }
 
   .covid-19-title {
@@ -125,6 +132,12 @@ function createChart(
     },
     handleScroll: {
       vertTouchDrag: false
+    },
+    priceScale: {
+      scaleMargins: {
+        top: 0.15,
+        bottom: 0
+      }
     }
   });
   const lineSeries = [
@@ -141,9 +154,21 @@ function createChart(
     lineSeries[2].setData(countrySeries("deaths"));
   };
 
+  // let volumeSeries = chart.addHistogramSeries({
+  //   color: "rgba(255, 0, 0, 0.2)"
+  // });
+
   loadData().then(data => {
     loadedData = data;
     update(data);
+
+    // volumeSeries.setData(
+    //   data[country].map((value, index, data) => ({
+    //     time: format(parse(value.date, "yyyy-M-d", new Date()), "yyyy-MM-dd"),
+    //     value: index ? value.confirmed - data[index - 1].confirmed : 0
+    //   }))
+    // );
+
     setValues(last(data[country]));
   });
 

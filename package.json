@@ -12,9 +12,13 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "dev": "parcel index.html",
+    "dev": "parcel site/index.html",
+    "build:site": "parcel build site/index.html --public-url https://jeetiss.github.io/covid-charts/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "parcelCleanPaths": [
+    "dist"
+  ],
   "keywords": [],
   "author": "jeetiss",
   "license": "ISC",
