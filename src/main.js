@@ -152,6 +152,8 @@ function createChart(
     lineSeries[0].setData(countrySeries("confirmed"));
     lineSeries[1].setData(countrySeries("recovered"));
     lineSeries[2].setData(countrySeries("deaths"));
+
+    chart.timeScale().fitContent();
   };
 
   // let volumeSeries = chart.addHistogramSeries({
