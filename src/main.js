@@ -1,10 +1,10 @@
 import { createChart as tvChart } from "lightweight-charts";
 import { parse, format } from "date-fns";
 
-const seriesCreator = data => key =>
+const seriesCreator = (data) => (key) =>
   Object.values(data).map(({ date, [key]: value }) => ({
     time: format(parse(date, "yyyy-M-d", new Date()), "yyyy-MM-dd"),
-    value
+    value,
   }));
 
 let dataPromise;
@@ -12,7 +12,7 @@ const loadData = () => {
   if (!dataPromise) {
     dataPromise = fetch(
       "https://pomber.github.io/covid19/timeseries.json"
-    ).then(response => response.json());
+    ).then((response) => response.json());
   }
 
   return dataPromise;
@@ -76,7 +76,7 @@ const div = (className, text) => {
   return div;
 };
 
-const last = arr => arr[arr.length - 1];
+const last = (arr) => arr[arr.length - 1];
 
 const wrapper = (element, text) => {
   element.classList.add("covid-19-chart");
@@ -99,7 +99,7 @@ const wrapper = (element, text) => {
     confirmed,
     recovered,
     deaths,
-    container
+    container,
   };
 };
 
@@ -120,33 +120,33 @@ function createChart(
     width,
     height,
     localization: {
-      priceFormatter: price => Math.round(price).toString()
+      priceFormatter: (price) => Math.round(price).toString(),
     },
     grid: {
       horzLines: {
-        visible: false
+        visible: false,
       },
       vertLines: {
-        visible: false
-      }
+        visible: false,
+      },
     },
     handleScroll: {
-      vertTouchDrag: false
+      vertTouchDrag: false,
     },
     priceScale: {
       scaleMargins: {
         top: 0.15,
-        bottom: 0
-      }
-    }
+        bottom: 0,
+      },
+    },
   });
   const lineSeries = [
     chart.addLineSeries({ color: "red" }),
     chart.addLineSeries(),
-    chart.addLineSeries({ color: "black" })
+    chart.addLineSeries({ color: "black" }),
   ];
 
-  const update = data => {
+  const update = (data) => {
     const countrySeries = seriesCreator(data[country]);
 
     lineSeries[0].setData(countrySeries("confirmed"));
@@ -160,7 +160,7 @@ function createChart(
   //   color: "rgba(255, 0, 0, 0.2)"
   // });
 
-  loadData().then(data => {
+  loadData().then((data) => {
     loadedData = data;
     update(data);
 
@@ -174,13 +174,13 @@ function createChart(
     setValues(last(data[country]));
   });
 
-  const setValues = data => {
+  const setValues = (data) => {
     confirmed.textContent = "confirmed: " + data.confirmed;
     recovered.textContent = "recovered: " + data.recovered;
     deaths.textContent = "deaths: " + data.deaths;
   };
 
-  chart.subscribeCrosshairMove(function(param) {
+  chart.subscribeCrosshairMove(function (param) {
     if (
       param === undefined ||
       param.time === undefined ||
@@ -194,19 +194,17 @@ function createChart(
       setValues({
         confirmed: param.seriesPrices.get(lineSeries[0]),
         recovered: param.seriesPrices.get(lineSeries[1]),
-        deaths: param.seriesPrices.get(lineSeries[2])
+        deaths: param.seriesPrices.get(lineSeries[2]),
       });
     }
   });
 
-  return {
-    remove: () => chart.remove(),
-    changeCountry: newCountry => {
-      country = newCountry;
-      update(loadedData);
-    },
-    countries: () => loadData().then(data => Object.keys(data))
+  chart.changeCountry = (newCountry) => {
+    country = newCountry;
+    update(loadedData);
   };
+
+  chart.countries = () => loadData().then((data) => Object.keys(data));
 }
 
 export default createChart;
